@@ -1,0 +1,19 @@
+require('dotenv').config();
+const express = require('express');
+const cors = require('cors');
+const helmet = require('helmet');
+
+const server = express();
+const port = process.env.PORT;
+
+server.use(helmet());
+server.use(cors());
+server.use(express.json());
+
+server.get('/', (req, res) => {
+  res.send("Up!");
+});
+
+server.listen(port, () => {
+  console.log(`Server is up on port: ${process.env.PORT}`);
+});
