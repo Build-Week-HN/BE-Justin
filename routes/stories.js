@@ -1,7 +1,17 @@
-var router = require('express').Router();
+const router = require('express').Router();
+const STORIES = require('../models/stories');
 
 router.get('/', (req, res) => {
-  res.send('📕 Stories route');
+  STORIES
+    .find()
+    .then(stories => {
+      res.status(200).json(stories);
+    })
+    .catch(err => {
+      res.status(500).json({
+        message: err.message
+      })
+    })
 });
 
 module.exports = router;
