@@ -1,7 +1,8 @@
 const router = require("express").Router();
 const STORIES = require("../models/stories");
+const restricted = require("../middlewares/restricted-route");
 
-router.get("/", async (req, res) => {
+router.get("/", restricted, async (req, res) => {
   try {
     const stories = await STORIES.returnAll();
     res.status(200).json(stories);
