@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 
 const validateUser = require("../middlewares/validate-user");
 const validateCreds = require("../middlewares/validate-creds");
-const generateToken = require("../middlewares/generate-token");
+const generateToken = require("../utils/generate-token");
 
 router.get("/", (req, res) => {
   res.send("👫 Users route");
