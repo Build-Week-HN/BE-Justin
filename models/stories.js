@@ -1,15 +1,21 @@
 const db = require("../data/dbConfig");
 
+function returnAll() {
+  return db("topStories");
+}
+
+function add(story) {
+  return db("topStories")
+  .insert(story);
+}
+
+function cleanUp() {
+  return db("topStories")
+  .truncate();
+}
+
 module.exports = {
-  returnAll: function() {
-    return db("topStories");
-  },
-  add: function(story) {
-    return db("topStories")
-    .insert(story);
-  },
-  cleanUp: function() {
-    return db("topStories")
-    .truncate();
-  }
+  returnAll,
+  add,
+  cleanUp
 };
