@@ -6,7 +6,7 @@ function returnAll() {
 
 function add(story) {
   return db("topStories")
-  .insert(story);
+  .insert(story, "id");
 }
 
 function cleanUp() {
