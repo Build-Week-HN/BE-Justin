@@ -15,4 +15,8 @@ server.use(express.json());
 server.use('/stories', stories);
 server.use('/users', users);
 
+server.get("/", (req, res, next) => {
+  res.send("🌚");
+});
+
 module.exports = server;
